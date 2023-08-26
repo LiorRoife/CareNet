@@ -1,0 +1,32 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the banner container */
+.banner {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Style for the banner text */
+.banner__text {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.lower-case-text {
+    font-size: 14px;
+    /* Adjust the size as needed */
+}
+
+/* Style for the banner logo */
+.banner__logo img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    /* Adjust as needed */
+}
