@@ -3,7 +3,8 @@ const ROUTES = {
     HOME: '/home',
     DASHBOARD: '/dashboard',
     START:'/start',
-    REPORT:'/start/report'
+    REPORT:'/start/report',
+    NEW_REPORT:'/start/report/newreport'
 }
 
 export default ROUTES

@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage'
 import DashboardPage from '../pages/DashboardPage'
 import StartPage from '../pages/StartPage'
 import ReportPage from '../pages/ReportPage'
+import NewReport from '../pages/NewReport'
 
 export default function Router() {
     return (
@@ -14,7 +15,7 @@ export default function Router() {
             <Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
             <Route path={ROUTES.START} element={<StartPage/>} />  
             <Route path={ROUTES.REPORT} element={<ReportPage/>} />  
-
+            <Route path={ROUTES.NEW_REPORT} element={<NewReport/>} />  
 
       </Routes>
     )

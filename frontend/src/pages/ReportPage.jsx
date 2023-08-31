@@ -1,12 +1,11 @@
-import React from 'react'
-import { Box , Button } from "@mui/material"
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Counter from '../components/Counter'
+import React from 'react';
+import { Box , Button } from "@mui/material";
 import './styles.css';
 import {Routes, Route, useNavigate} from 'react-router-dom';
+import ArtChat from './NewReport';
 import ROUTES from '../routes/routesModel';
 
-export default function HomePage() {
+export default function ReportPage() {
 
   const navigate = useNavigate();
 
@@ -37,7 +36,7 @@ export default function HomePage() {
                    <Button className="boycott_witness"
                    variant="contained"
                     color="primary"
-                    onClick={() => navigate(ROUTES.REPORT)}
+                    onClick={() => navigate(ROUTES.NEW_REPORT)}
  
                     style={{blockSize:'40px', fontSize:'18px', backgroundColor:'#38D2D2'}}>
                     <strong>דיווח על מקרה</strong>                 </Button>

@@ -11,7 +11,7 @@ const ContainedButton = (props) => {
       size="large"
       //onClick={handleButtonClick}
     >
-      {props.data}
+      
     </Button>
   );
 };
