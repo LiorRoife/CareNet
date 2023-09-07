@@ -18,10 +18,8 @@ export default function HomePage() {
                     <div className="banner__text">
                         <strong>CareNet </strong>
 
-                        <div className="banner__text-subtitle" dir='rtl' style={{ fontSize: '14px' }}>
-                           <h1>
-                            
-                           </h1> אתה לא לבד
+                        <div className="banner__text-subtitle" style={{ fontSize: '14px' }}>
+                            אתה לא לבד
                         </div>
                         
                     </div>

@@ -3,13 +3,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    direction: rtl;
+    text-align: center;
+    
 }
 
 /* Style for the banner container */
 .banner {
     text-align: center;
     padding: 20px;
-    background-color: #fffefe;
+    background-color: #feffff;
 }
 
 /* Style for the banner text */
@@ -54,6 +57,4 @@
     font-weight: bold;
     
 }
-
-
 

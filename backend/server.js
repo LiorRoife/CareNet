@@ -1,11 +1,27 @@
 const express = require ("express");
-const bodyParser = require("body-parser");
+const path = require('path');
+//const bodyParser = require("body-parser");
 
 const app = express();
+const port =  5000;
+const frontendPath=path.resolve("C:/Users/maorize1/Desktop/CareNet/frontend"); // Use forward slashes or escape backslashes
+app.use(express.json());
 
-app.use(bodyParser.urlencoded({extended:true}));
+const messageRouter= require("./routes/saveMessages");
+app.use("/",messageRouter);
 
-app.listen((3000), function(){
-    console.log("server is running on port 3000")
+app.use(express.static(path.join(frontendPath,'build')));
+
+//app.use(bodyParser.urlencoded({extended:true}));
+app.get("/", function(req,res){
+    res.sendFile(path.join(frontendPath, 'build', 'index.html'));
+    console.log("get is working");
+    //console.log("__dirname: ",__dirname);
+   // res.sendFile(path.join("C:\Users\maorize1\Desktop\CareNet\frontend", 'build', 'index.js'))
+    //res.send("Hello, World!");
+});
+
+app.listen(port, function(){
+    console.log('server is running on port: ',port);
 });
 

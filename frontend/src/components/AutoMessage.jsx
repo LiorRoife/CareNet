@@ -9,30 +9,13 @@
         </div>
         
     )
-}*/import React, { useState } from 'react';
-import autoMessage from '../guidingMessages';
+}*/import React from 'react';
 
-const MessageDisplay = ({ messages }) => {
+function MessageDisplay (props) {
 
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-  //const [userMessages, setUserMessages] = useState();
-
-  function handleNextMessage  ()  {
-      
-      if (currentMessageIndex < autoMessage.length + messages.length - 1) {
-          setCurrentMessageIndex(currentMessageIndex + 1)};      
-      }
-     
-   
-  
-   const currentMessage = messages[currentMessageIndex];
-  
     return (
-       <div>
-       {autoMessage.map((messages)=>(
-        <p key={messages.id}>{currentMessage.message}</p>
-       ))}
-          {handleNextMessage}
+       <div className='automaticMessage'>
+        <p ><strong>{props.message}</strong></p>  
         </div>
     );
   };

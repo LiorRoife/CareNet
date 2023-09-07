@@ -1,133 +1,171 @@
-import React, { useState, useEffect } from 'react'
-import { Card, TextField, Button, List, ListItem, ListItemText, Divider } from '@mui/material'
-import SendIcon from '@mui/icons-material/Send'
-import autoMessages from '../guidingMessages'
-import MessageDisplay from '../components/AutoMessage'  
-    
-    export default function Chat () {
-        // Your other state and logic here
-        const [messages, setMessages] = useState([]);
-        const [currentMessage, setCurrentMessage] = useState('');
-        const [autoMessageNumber, setAutoMessageNumber]=useState(0);
+import React, { useState, useEffect } from 'react';
+import { Card, TextField, Button, List, ListItem, ListItemText, Divider, Typography } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import autoMessages from '../guidingMessages';
+import MessageDisplay from '../components/AutoMessage';
+import './styles.css';
+import saveMessages from '../saveMessagesToServer';
 
-        function setNextAutoMessage(){
-            setAutoMessageNumber(autoMessageNumber+1);
-        }
-       
-        function handleSendClick() {
-            if (currentMessage.trim() !== '') {
-                // Only add non-empty messages to the chat
-                setMessages([...messages, currentMessage]);
-                setCurrentMessage(''); // Clear the input field after sending
-                setNextAutoMessage();
-            }
-        }
-            
-        return (
-            <Card style={{ margin:'0px 15px', width: '25vw', height: '90vh', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flex: 1, overflowY: 'auto', marginBottom: '20px' }}>    
+export default function Chat() {
+  // Your other state and logic here
+  const [messages, setMessages] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState('');
+  const [autoMessageNumber, setAutoMessageNumber] = useState(0);
+  const[wasClicked,setWasClicked]=useState(false);
 
-                <List style={{ overflowY: 'auto', flexGrow: 1, marginBottom: '20px' }}>
-                {messages.map((message, index) => (
-                    <React.Fragment key={index}>
-                    {index <4 && (
-                     <ListItem>
-                       <ListItemText primary={autoMessages[autoMessageNumber-1].message} />
-                    </ListItem>
-                     )}
-                    <ListItem>
-                      <ListItemText primary={message} />
-                    </ListItem>
-                    </React.Fragment>
-                ))}
-            </List>
-            <p><strong>{autoMessageNumber<4 && autoMessages[autoMessageNumber].message}</strong></p>
 
-            <div style={{ display: 'flex', alignItems: 'center', padding: '10px' , marginTop:'auto'}}>
-                <TextField
-                    fullWidth
-                    variant="outlined"
-                    value={currentMessage}
-                    onChange={e => setCurrentMessage(e.target.value)}   
-                    onKeyDown={e => {
-                        if (e.key === 'Enter') handleSendClick();
-                    }}             
-                    placeholder="Type your message..."
-                    style={{ flex: 1, paddingRight: '10px' }} // Adjust paddingRight to account for the button width
-                />
+  function setNextAutoMessage() {
+    setAutoMessageNumber(autoMessageNumber + 1);
+  }
 
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleSendClick}
-                    style={{
-                        borderRadius: '50%',
-                        width: '50px',
-                        height: '50px',
-                        minWidth: '50px',
-                        padding: 0
-                    }}
-                    >
-
-                    <SendIcon />
-                   
-                </Button>
-            </div>
-           
-            </div>
-            </Card>
-        );
+  function handleSendClick() {
+    if (currentMessage.trim() !== '') {
+      // Only add non-empty messages to the chat
+      setMessages([...messages, currentMessage]);
+      setCurrentMessage(''); // Clear the input field after sending
+      setNextAutoMessage();
     }
-    
- 
-    
+  }
 
-   /*return (
-        
-        <Card style={{ margin:'0px 15px', width: '25vw', height: '90vh', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
-         <div className="Auto_Message">
-      <MessageDisplay autoMessages={autoMessages} />
-    </div>
-            <List style={{ overflowY: 'auto', flexGrow: 1, marginBottom: '20px' }}>
-                {messages.map((message, index) => (
-                    <React.Fragment key={index}>
-                        <ListItem>
-                            <ListItemText primary={message} />
-                        </ListItem>
-                        {index !== messages.length - 1 && <Divider />}
-                    </React.Fragment>
-                ))}
-            </List>
+  function handleEndOfChat(){
+    var chatMessages=[];
+    messages.map((message,i) => {
+        chatMessages.push(autoMessages[i].message);
+        chatMessages.push(message);
+     })
+     saveMessages(chatMessages);
+     return(
+        <h1>אל תתן לאף אחד לכבות את הניצוץ שלך </h1>
+     )
+  }
 
-            <div style={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-                <TextField
-                    fullWidth
-                    variant="outlined"
-                    value={currentMessage}
-                    onChange={e => setCurrentMessage(e.target.value)}
-                    
-                    placeholder="Type your message..."
-                    style={{ flex: 1, paddingRight: '10px' }} // Adjust paddingRight to account for the button width
-                />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    
-                    style={{
-                        borderRadius: '50%',
-                        width: '50px',
-                        height: '50px',
-                        minWidth: '50px',
-                        padding: 0
-                    }}
-                >
-                    <SendIcon />
-                </Button>
-            </div>
-        </Card>
-        
-
+  function handleChat(index) {
+    return (
+      <div className="sendreports" dir="rtl">
+        <Typography variant="body2" style={secondaryTextStyle}>
+          {autoMessages[2].message}
+        </Typography>
+        <br></br>
+        <p>
+          <strong>אם את/ה רוצה לערוך את הדיווח נא תקליד/י בתיבת הטקסט למטה ושלח/י שנית</strong>
+        </p>
+        <div>
+          <Button
+            id='sendrepButton'
+            className="sendrep"
+            variant="contained"
+            color="primary"
+            style={{
+              blockSize: '50px',
+              fontSize: '20px',
+              backgroundColor: '#218383',
+              marginLeft: '20px',
+              marginTop: '30px',
+            }}
+            onClick={() => {    
+            setWasClicked(true);
+            handleEndOfChat();
+            }} >
+            שליחת דיווח
+          </Button>
+        </div>
+      </div>
     );
-}*/
+  }
 
-    
+  const primaryTextStyle = {
+    color: '#38D2D2',
+    fontWeight: 'italic',
+    fontSize: '16px', // Adjust the font size as needed
+    direction: 'rtl', // Set the text direction to RTL
+    textAlign: 'right', // Align text to the right
+    wordWrap: 'break-word',
+  };
+
+  const secondaryTextStyle = {
+    color: '#218383',
+    fontStyle: 'bolder',
+    fontSize: '18px', // Adjust the font size as needed
+    direction: 'rtl', // Set the text direction to RTL
+    textAlign: 'right', // Align text to the right
+  };
+
+  return (
+    <Card
+      style={{
+        margin: '0px 15px',
+        width: '40vw',
+        height: '90vh',
+        borderRadius: '8px',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <div style={{ flex: 1, overflowY: 'auto', marginBottom: '20px' }}>
+        <MessageDisplay
+          id={autoMessages[0].id}
+          key={autoMessages[0].id}
+          message={autoMessages[0].message}
+        />
+        <List style={{ overflowY: 'auto', flexGrow: 1, marginBottom: '20px' }}>
+          {messages.map((message, index) => (
+            <React.Fragment key={index}>
+              <ListItem>
+                <ListItemText
+                  primary={
+                    <Typography variant="body1" style={primaryTextStyle}>
+                      {message}
+                    </Typography>
+                  }
+                  secondary={
+                    index + 1 === 2 ? (
+                      handleChat()
+                    ) : (
+                      <Typography variant="body2" style={secondaryTextStyle}>
+                        {autoMessages[index + 1].message}
+                      </Typography>
+                    )
+                  }
+                  style={{ fontWeight: 'bolder', color: 'red' }}
+                />
+              </ListItem>
+            </React.Fragment>
+          ))}
+        </List>
+        <div>
+          {autoMessageNumber > 2 || wasClicked == true ? (
+            handleEndOfChat()
+          ) : (
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '10px' }}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleSendClick}
+                style={{
+                  borderRadius: '50%',
+                  width: '50px',
+                  height: '50px',
+                  minWidth: '50px',
+                  backgroundColor: '#31b7b7',
+                }}
+              >
+                <SendIcon />
+              </Button>
+              <TextField
+                fullWidth
+                variant="outlined"
+                value={currentMessage}
+                onChange={(e) => setCurrentMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSendClick();
+                }}
+                placeholder="Type your message..."
+                style={{ flex: '1', paddingRight: '10px', wordWrap: 'break-word', width: '100%', flexDirection: 'column' }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </Card>
+  );
+}

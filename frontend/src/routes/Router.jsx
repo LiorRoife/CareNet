@@ -10,6 +10,7 @@ import NewReport from '../pages/NewReport'
 export default function Router() {
     return (
         <Routes>
+        
             <Route path={ROUTES.ROOT} element={<HomePage />} />
             <Route path={ROUTES.HOME} element={<HomePage />} />
             <Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
@@ -18,5 +19,5 @@ export default function Router() {
             <Route path={ROUTES.NEW_REPORT} element={<NewReport/>} />  
 
       </Routes>
-    )
+    );
 }
