@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import HomeIcon from '@mui/icons-material/Style';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CallIcon from '@mui/icons-material/Call';
-import PhonePopupModal from './PhonePopupModal'; // Import the PhonePopupModal component
 
 import ROUTES from '../routes/routesModel';
 
 export default function Footer() {
     const navigate = useNavigate();
+
+    const handleMoreButtonClick = () => {
+        navigate(ROUTES.MORE);
+    };
 
     return (
         <>
@@ -22,7 +25,7 @@ export default function Footer() {
                     <BottomNavigationAction
                         label="מידע נוסף"
                         icon={<MoreHorizIcon />}
-                        onClick={() => navigate(ROUTES.MORE)}
+                        onClick={handleMoreButtonClick}
                     />
                     <BottomNavigationAction
                         label="קו-חם"
