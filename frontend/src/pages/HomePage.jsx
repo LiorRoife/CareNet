@@ -22,8 +22,7 @@ export default function HomePage() {
                 </div>
             </div>
 
-            {/* Your original content: 
-        <Counter /> */}
+            {/* original content: */}
 
         </Box>
     )
