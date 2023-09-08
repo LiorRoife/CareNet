@@ -36,7 +36,7 @@ export default function ContactUsPage() {
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p style={emailStyle}>
-                <a href="mailto:ContantCareNet@gmail.com" style={emailStyle}>
+                <a href="mailto:ContactCareNet@gmail.com" style={emailStyle}>
                     ContantCareNet@gmail.com
                 </a>
             </p>
