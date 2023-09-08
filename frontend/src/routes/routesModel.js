@@ -4,9 +4,10 @@ const ROUTES = {
     DASHBOARD: '/dashboard',
     START: '/start',
     REPORT: '/start/report',
-    MORE: '/more', // Added this line
-    PHONE_POPUP: '/phone-popup', // Added this line
+    MORE: '/more',
+    PHONE_POPUP: '/phone-popup',
+    ABOUT: '/about', // Add the route for the "AboutPage"
+    CONTACT_US: '/contact-us', // Add the route for the "ContactUsPage"
+};
 
-}
-
-export default ROUTES
+export default ROUTES;

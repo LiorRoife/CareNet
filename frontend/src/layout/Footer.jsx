@@ -37,11 +37,12 @@ export default function Footer() {
                         icon={<InfoIcon />}
                         onClick={() => navigate(ROUTES.DASHBOARD)}
                     />
+                    {/* The following line is the "בית" link 
                     <BottomNavigationAction
                         label="בית"
                         icon={<HomeIcon />}
-                        onClick={() => navigate(ROUTES.ROOT)}
-                    />
+                        onClick={() => navigate(ROUTES.ROOT)} 
+                    />  */}
                 </BottomNavigation>
             </Paper>
         </>

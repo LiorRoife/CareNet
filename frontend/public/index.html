@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 
 <head>
   <meta charset="utf-8" />
@@ -8,36 +8,115 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
   <title>CareNet</title>
+  <!-- Add your CSS stylesheets and other head content here -->
+  <style>
+    /* Add your CSS styles here */
+    .copyright,
+    .footer-link {
+      font-size: 12px;
+      /* Adjust the size to preference */
+    }
+
+    .footer-container {
+      text-align: center;
+      /* Center-align all content in the footer */
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #333;
+      /* Background color for the header */
+      color: #fff;
+      /* Text color */
+      padding: 10px 0;
+      /* Padding at the top and bottom of the header */
+      display: flex;
+      /* Use flexbox to align items */
+      justify-content: space-between;
+      /* Space between items */
+      align-items: center;
+      /* Center align vertically */
+    }
+
+    .logo img {
+      max-width: 60px;
+      /* Adjust the size as needed */
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      /* Remove bullet points from the list */
+      padding: 0;
+      /* Remove padding from the list */
+    }
+
+    nav li {
+      display: inline;
+      /* Display list items horizontally */
+      margin-right: 20px;
+      /* Add space between menu items */
+      font-size: 16px;
+      /* Font size for links */
+    }
+
+    nav a {
+      text-decoration: none;
+      /* Remove underlines from links */
+      color: #fff;
+      /* Link text color */
+      font-weight: bold;
+      /* Bold font for links */
+    }
+
+    nav a:hover {
+      color: #ff6600;
+      /* Hover color for links */
+    }
+  </style>
+</head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <header>
+    <div class="header-container">
+      <nav>
+        <ul>
+          <li><a href="/">בית</a></li>
+          <!-- Update the href attribute to link to the AboutPage component -->
+          <li><a href="/about">אודות</a></li>
+          <!-- Update the href attribute to link to the ContactUsPage component -->
+          <li><a href="/contact-us">צור קשר</a></li>
+        </ul>
+      </nav>
+      <div class="logo">
+        <a href="/" aria-label="בית">
+          <img src="pics\CareNet_Logo.png" alt="Your Logo">
+        </a>
+      </div>
+    </div>
+  </header>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <main>
+    <!-- React app content goes here -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </main>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+  <footer>
+    <!-- Footer content here -->
+    <div class="footer-container">
+      <p class="copyright">&copy; 2023 CareNet. All rights reserved.</p>
+      <p><a href="/privacy-policy" class="footer-link">מדיניות פרטיות</a> | <a href="/terms-of-service"
+          class="footer-link">תנאי שימוש</a></p>
+    </div>
+  </footer>
 
+  <!-- JavaScript scripts or additional content here -->
+  <script>
+    // JavaScript code here
+  </script>
 </body>
 
 </html>
