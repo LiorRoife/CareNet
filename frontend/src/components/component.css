@@ -1,0 +1,89 @@
+/* login style css */
+.loginCard{
+    /*margin-right: 20%;
+    margin-left: 99%;*/
+    padding-top: 5px;
+    width: 95vw;
+    height: 50vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+
+  flex-direction: row; 
+  align-items: rtl;
+  justify-content: right;
+
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    align-items: center;
+    height: 25px;
+    border: 1px solid ;
+    width: 100%;
+    border-color:#38D2D2;
+  }
+  
+  .submit {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size:x-large;
+    background: #38D2D2;
+    border: 1px solid #38D2D2;
+    color: #050505;
+    padding: 10px 20px;
+   
+  }
+  
+ .submit:hover {
+    background: #7ce6e6;
+  }
+
+  .sign-up {
+    margin-top: 15px;
+    background:#38D2D2;
+    color: #0e1113;
+    padding: 5px 10px;
+    border: 1px solid #ffffff;
+    font-size: medium;
+  }
+
+  .sign-up:hover{
+    background-color:#7ce6e6;
+  }
+  
+  .form { 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(63, 229, 235, 0.963), 0 6px 20px 0 rgba(91, 223, 235, 0.776);
+  }
+  
+  .list-container {
+    display: flex;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .title {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }
+
+  

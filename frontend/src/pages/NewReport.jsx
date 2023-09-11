@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, TextField, Button, List, ListItem, ListItemText, Divider, Typography } from '@mui/material';
+import { Card, TextField, Button, List, ListItem, ListItemText,  Typography } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import autoMessages from '../guidingMessages';
 import MessageDisplay from '../components/AutoMessage';
@@ -34,10 +34,12 @@ export default function Chat() {
         chatMessages.push(message);
      })
      saveMessages(chatMessages);
-     return(
-        <h1>אל תתן לאף אחד לכבות את הניצוץ שלך </h1>
+     return(<div><h1>אל תתן לאף אחד לכבות את הניצוץ שלך!! </h1><br></br><h2 style={{color:'rgb(33, 131, 131)'}}>שים לב שב"מידע נוסף" קיימים כלים נוספים שאולי יוכלו לעזור לך</h2></div>
+      
+      
      )
   }
+
 
   function handleChat(index) {
     return (
@@ -64,7 +66,8 @@ export default function Chat() {
             }}
             onClick={() => {    
             setWasClicked(true);
-            handleEndOfChat();
+           // handleEndOfChat();
+            
             }} >
             שליחת דיווח
           </Button>
@@ -74,7 +77,7 @@ export default function Chat() {
   }
 
   const primaryTextStyle = {
-    color: '#38D2D2',
+    color: 'blue',
     fontWeight: 'italic',
     fontSize: '16px', // Adjust the font size as needed
     direction: 'rtl', // Set the text direction to RTL
@@ -102,21 +105,21 @@ export default function Chat() {
       }}
     >
       <div style={{ flex: 1, overflowY: 'auto', marginBottom: '20px' }}>
-        <MessageDisplay
-          id={autoMessages[0].id}
-          key={autoMessages[0].id}
-          message={autoMessages[0].message}
-        />
-        <List style={{ overflowY: 'auto', flexGrow: 1, marginBottom: '20px' }}>
+       <label style={{fontSize:'18px'}}><strong>היי, תודה שאזרת את האומץ לפנות. זה לא מובן מאליו!</strong><br></br>
+       <strong>אנחנו כאן כדי לשמוע</strong></label>
+      <p style={{marginRight:'13px'}} ><Typography style={secondaryTextStyle}>{autoMessages[0].message}</Typography></p>
+        <List style={{  flexGrow: 1, marginBottom: '20px' }}>
           {messages.map((message, index) => (
             <React.Fragment key={index}>
               <ListItem>
                 <ListItemText
                   primary={
                     <Typography variant="body1" style={primaryTextStyle}>
-                      {message}
+                      {message} 
                     </Typography>
+                    
                   }
+                 
                   secondary={
                     index + 1 === 2 ? (
                       handleChat()
@@ -133,10 +136,10 @@ export default function Chat() {
           ))}
         </List>
         <div>
-          {autoMessageNumber > 2 || wasClicked == true ? (
+          {autoMessageNumber > 2 || wasClicked  ? (
             handleEndOfChat()
-          ) : (
-            <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '10px' }}>
+          ) :
+           <div style={{ position: 'relative', display: 'flex',justifyContent:'space-between', alignItems: 'center', marginLeft:'10px',marginRight:'10px' }}>         
               <Button
                 variant="contained"
                 color="primary"
@@ -147,6 +150,7 @@ export default function Chat() {
                   height: '50px',
                   minWidth: '50px',
                   backgroundColor: '#31b7b7',
+                 
                 }}
               >
                 <SendIcon />
@@ -162,10 +166,9 @@ export default function Chat() {
                 placeholder="Type your message..."
                 style={{ flex: '1', paddingRight: '10px', wordWrap: 'break-word', width: '100%', flexDirection: 'column' }}
               />
-            </div>
-          )}
+            </div>}
         </div>
       </div>
-    </Card>
+    </Card> 
   );
 }

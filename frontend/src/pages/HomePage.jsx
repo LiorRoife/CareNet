@@ -5,6 +5,7 @@ import Counter from '../components/Counter'
 import './styles.css';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import ROUTES from '../routes/routesModel';
+import Footer from '../layout/Footer';
 
 export default function HomePage() {
 
@@ -33,10 +34,6 @@ export default function HomePage() {
                     </button> 
                 </div>
             </div>
-
-            {/* Your original content: 
-        <Counter /> */}
-
         </Box>
     )
 }
