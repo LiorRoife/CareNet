@@ -49,7 +49,7 @@ const links = [
     },
     {
         text: 'יחידה 105 - המטה הלאומי להגנה על ילדים ברשת',
-        url: 'https://www.police.gov.il/join/unit-105', // New link
+        url: 'https://www.police.gov.il/join/unit-105',
     },
     // Add more links here as needed
 ];
