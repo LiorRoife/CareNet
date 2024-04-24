@@ -1,5 +1,7 @@
-
-                                                                                         ![POSTER](https://i.postimg.cc/k5WpkQTM/Care-Net-App-Poster.jpg)
+<p align="center">
+  <img src="https://i.postimg.cc/k5WpkQTM/Care-Net-App-Poster.jpg" />
+</p>
+![POSTER](src)
   
 **Project Summary:**
 *Web Application called ‘CareNet’.*
