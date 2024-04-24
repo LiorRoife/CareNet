@@ -1,4 +1,3 @@
-Lior Roife 206257826, Maor Zemach 206273690, Neta Caspi (UI/UX) 208466946
 
 ![POSTER](https://i.postimg.cc/k5WpkQTM/Care-Net-App-Poster.jpg)
   
